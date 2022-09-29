@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:test_restaurants_app/ui/pages/auth_page.dart';
+import 'package:test_restaurants_app/ui/pages/auth_page/auth_page.dart';
 import 'package:test_restaurants_app/ui/pages/home/home.dart';
-import 'package:test_restaurants_app/ui/pages/registration_page.dart';
+import 'package:test_restaurants_app/ui/pages/registration_page/registration_page.dart';
 
 class AppRoutes {
   static final instance = AppRoutes._();

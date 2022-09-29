@@ -1,4 +1,4 @@
-import 'package:test_restaurants_app/data/models/restaurant_all_model.dart';
+part of 'restaurants_cubit.dart';
 
 abstract class RestaurantsState {}
 

@@ -20,7 +20,7 @@ class AppHttpException {
         return Left(UserNotAuthFailure(message));
 
       default:
-        return Left(ServerFailure(map.toString()));
+        return Left(ServerFailure(map['message']));
     }
   }
 }

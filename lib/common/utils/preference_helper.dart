@@ -149,7 +149,7 @@ class PreferencesHelper {
     return p.remove(key);
   }
 
-  static Future clear() async {
+  static Future<bool> clear() async {
     final p = await prefs;
     return p.clear();
   }

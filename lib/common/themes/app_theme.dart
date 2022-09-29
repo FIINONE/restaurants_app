@@ -17,7 +17,7 @@ class AppTheme {
 
     //Divider
     dividerTheme: const DividerThemeData(
-      color: AppColors.dividerColor,
+      color: AppColors.grey_3,
       indent: 16,
       endIndent: 16,
       thickness: 1,
@@ -30,6 +30,7 @@ class AppTheme {
       selectedItemColor: AppColors.blue,
       unselectedItemColor: Colors.black,
       type: BottomNavigationBarType.fixed,
+      elevation: 0,
       selectedLabelStyle: AppTextStyles.regular.copyWith(
         fontSize: 10,
       ),
