@@ -7,8 +7,9 @@ class AppTextStyles {
   );
 
   static const medium = TextStyle(
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: FontWeight.w500,
+    color: Colors.black
   );
 
   static const semiBold = TextStyle(

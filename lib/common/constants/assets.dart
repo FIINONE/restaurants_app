@@ -17,39 +17,39 @@ class Assets {
   /// assets/fonts/Manrope-SemiBold.ttf
   static const String fontsManropeSemiBold = "assets/fonts/Manrope-SemiBold.ttf";
 
-  /// Assets for iconsEat
-  /// assets/icons/eat.svg
-  static const String iconsEat = "assets/icons/eat.svg";
+  /// Assets for svgEat
+  /// assets/svg/eat.svg
+  static const String svgEat = "assets/svg/eat.svg";
 
-  /// Assets for iconsLikeOff
-  /// assets/icons/like_off.svg
-  static const String iconsLikeOff = "assets/icons/like_off.svg";
+  /// Assets for svgLikeOff
+  /// assets/svg/like_off.svg
+  static const String svgLikeOff = "assets/svg/like_off.svg";
 
-  /// Assets for iconsLikeOn
-  /// assets/icons/like_on.svg
-  static const String iconsLikeOn = "assets/icons/like_on.svg";
+  /// Assets for svgLikeOn
+  /// assets/svg/like_on.svg
+  static const String svgLikeOn = "assets/svg/like_on.svg";
 
-  /// Assets for iconsMap
-  /// assets/icons/map.svg
-  static const String iconsMap = "assets/icons/map.svg";
+  /// Assets for svgMap
+  /// assets/svg/map.svg
+  static const String svgMap = "assets/svg/map.svg";
 
-  /// Assets for iconsPosition
-  /// assets/icons/position.svg
-  static const String iconsPosition = "assets/icons/position.svg";
+  /// Assets for svgPosition
+  /// assets/svg/position.svg
+  static const String svgPosition = "assets/svg/position.svg";
 
-  /// Assets for iconsProfile
-  /// assets/icons/profile.svg
-  static const String iconsProfile = "assets/icons/profile.svg";
+  /// Assets for svgProfile
+  /// assets/svg/profile.svg
+  static const String svgProfile = "assets/svg/profile.svg";
 
-  /// Assets for iconsSearch
-  /// assets/icons/search.svg
-  static const String iconsSearch = "assets/icons/search.svg";
+  /// Assets for svgSearch
+  /// assets/svg/search.svg
+  static const String svgSearch = "assets/svg/search.svg";
 
-  /// Assets for iconsTarget
-  /// assets/icons/target.svg
-  static const String iconsTarget = "assets/icons/target.svg";
+  /// Assets for svgTarget
+  /// assets/svg/target.svg
+  static const String svgTarget = "assets/svg/target.svg";
 
-  /// Assets for iconsUserIcon
-  /// assets/icons/user_icon.svg
-  static const String iconsUserIcon = "assets/icons/user_icon.svg";
+  /// Assets for svgUserIcon
+  /// assets/svg/user_icon.svg
+  static const String svgUserIcon = "assets/svg/user_icon.svg";
 }
