@@ -5,6 +5,7 @@ class AppTextStyles {
     fontSize: 16,
     fontWeight: FontWeight.w400,
     color: Colors.black,
+    overflow: TextOverflow.ellipsis,
     height: 1.3,
   );
 

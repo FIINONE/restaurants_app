@@ -5,6 +5,8 @@ import 'package:test_restaurants_app/common/routes/app_routes.dart';
 import 'package:test_restaurants_app/common/themes/app_theme.dart';
 import 'package:test_restaurants_app/controllers/auth/auth_cubit.dart';
 import 'package:test_restaurants_app/controllers/errors_cubit.dart';
+import 'package:test_restaurants_app/controllers/favorite_cubit.dart';
+import 'package:test_restaurants_app/controllers/restaurant_detail/restaurant_detailed_cubit.dart';
 import 'package:test_restaurants_app/controllers/restaurants/restaurants_cubit.dart';
 import 'package:test_restaurants_app/controllers/user_cubit.dart';
 import 'package:test_restaurants_app/di.dart';
@@ -17,10 +19,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (_) => sl.get<RestaurantsCubit>()),
         BlocProvider(create: (_) => sl.get<AuthCubit>()),
         BlocProvider(create: (_) => sl.get<AppErrorsCubit>()),
         BlocProvider(create: (_) => sl.get<UserCubit>()),
+        BlocProvider(create: (_) => sl.get<RestaurantsAllCubit>()),
+        BlocProvider(create: (_) => sl.get<RestaurantDetailedCubit>()),
+        BlocProvider(create: (_) => sl.get<FavoriteCubit>()),
       ],
       child: MaterialApp(
         theme: AppTheme.light,
@@ -31,4 +35,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-

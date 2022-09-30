@@ -8,4 +8,13 @@ class AppColors {
   static const grey_3 = Color(0xFFE0E6ED);
   static const blue = Color(0xFF4631D2);
   static const red = Color(0xFFEC3A4D);
+
+  static const linear = LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [
+      Color.fromRGBO(0, 0, 0, 0.8),
+      Color.fromRGBO(0, 0, 0, 0),
+    ],
+  );
 }

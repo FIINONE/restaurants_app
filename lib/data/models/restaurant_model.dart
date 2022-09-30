@@ -1,4 +1,5 @@
 import 'package:test_restaurants_app/data/models/coords_model.dart';
+import 'package:test_restaurants_app/data/models/image_model.dart';
 import 'package:test_restaurants_app/data/models/schedule_model.dart';
 import 'package:test_restaurants_app/data/models/user_model.dart';
 
@@ -12,7 +13,7 @@ class RestaurantModel {
   final int userId;
   final ScheduleModel schedule;
   final CoordsModel coords;
-  final List<dynamic> images;
+  final List<ImageModel> images;
   final UserModel user;
   RestaurantModel({
     required this.isFavourite,
@@ -38,7 +39,7 @@ class RestaurantModel {
     int? userId,
     ScheduleModel? schedule,
     CoordsModel? coords,
-    List<dynamic>? images,
+    List<ImageModel>? images,
     UserModel? user,
   }) {
     return RestaurantModel(
@@ -83,7 +84,7 @@ class RestaurantModel {
       userId: map['user_id']?.toInt(),
       schedule: ScheduleModel.fromMap(map['schedule']),
       coords: CoordsModel.fromMap(map['coords']),
-      images: List<dynamic>.from(map['images']),
+      images: List<ImageModel>.from(map['images'].map((x) => ImageModel.fromMap(x))),
       user: UserModel.fromMap(map['user']),
     );
   }

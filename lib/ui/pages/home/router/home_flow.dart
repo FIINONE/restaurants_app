@@ -24,7 +24,7 @@ class _HomeFlowState extends State<HomeFlow> {
           case HomeRouter.restaurantsList:
             return HomeRouter.instance.wrapToRoute(settings, const RestaurantsListScreens());
           case HomeRouter.restaurantDetailed:
-            return HomeRouter.instance.wrapToRoute(settings, const RestaurantDetailedScreen());
+            return HomeRouter.instance.wrapToRoute(settings, const RestaurantDetailedPage());
           case HomeRouter.map:
             return HomeRouter.instance.wrapToRoute(settings, const MapScreen());
           case HomeRouter.favorite:

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:test_restaurants_app/ui/pages/auth_page/auth_page.dart';
 import 'package:test_restaurants_app/ui/pages/home/home.dart';
+import 'package:test_restaurants_app/ui/pages/home/screens/restaurant_detailed.dart';
 import 'package:test_restaurants_app/ui/pages/registration_page/registration_page.dart';
 
 class AppRoutes {
@@ -18,6 +19,9 @@ class AppRoutes {
       case AppRoutesName.home:
         return MaterialPageRoute(builder: (context) => const HomePage());
 
+      case AppRoutesName.restaurantDetailed:
+        return MaterialPageRoute(builder: (context) => const RestaurantDetailedPage());
+
       default:
         return null;
     }
@@ -28,4 +32,5 @@ class AppRoutesName {
   static const auth = '/';
   static const registration = '/registration';
   static const home = '/home';
+  static const restaurantDetailed = '/home/restaurant_detailed';
 }

@@ -1,65 +1,96 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:test_restaurants_app/common/constants/assets.dart';
-import 'package:test_restaurants_app/common/themes/app_colors.dart';
-import 'package:test_restaurants_app/common/themes/app_text_styles.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class RestaurantsListScreens extends StatelessWidget {
+import 'package:test_restaurants_app/common/constants/assets.dart';
+import 'package:test_restaurants_app/common/themes/app_text_styles.dart';
+import 'package:test_restaurants_app/controllers/restaurants/restaurants_cubit.dart';
+import 'package:test_restaurants_app/data/models/image_model.dart';
+import 'package:test_restaurants_app/data/models/restaurant_model.dart';
+import 'package:test_restaurants_app/ui/widgets/restaurant_widget.dart';
+import 'package:test_restaurants_app/ui/widgets/search_field.dart';
+
+class RestaurantsListScreens extends StatefulWidget {
   const RestaurantsListScreens({Key? key}) : super(key: key);
 
   @override
+  State<RestaurantsListScreens> createState() => _RestaurantsListScreensState();
+}
+
+class _RestaurantsListScreensState extends State<RestaurantsListScreens> {
+  @override
+  void initState() {
+    super.initState();
+
+    final cubit = context.read<RestaurantsAllCubit>();
+    cubit.getRestaurants();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final cubit = context.read<RestaurantsAllCubit>();
+    final height = MediaQuery.of(context).size.height / 5;
+
     return Padding(
       padding: const EdgeInsets.only(top: 64.0, right: 16, left: 16),
       child: Column(
-        mainAxisSize: MainAxisSize.min,
         children: [
-          const SearchField(),
-          Expanded(
-            child: ListView.builder(
-              itemCount: 10,
-              itemBuilder: (context, index) {
-                return const RestaurantWidget();
-              },
-            ),
-          )
+          SearchField(
+            onChanged: (value) {
+              cubit.getRestaurants(search: value);
+            },
+          ),
+          BlocBuilder<RestaurantsAllCubit, RestaurantsState>(
+            builder: (context, state) {
+              return state.map(
+                loading: (loading) => Padding(
+                  padding: EdgeInsets.only(top: height),
+                  child: const Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                ),
+                error: (error) {
+                  return Center(
+                    child: Text(
+                      error.message,
+                      style: AppTextStyles.regular.copyWith(fontSize: 20),
+                    ),
+                  );
+                },
+                data: (data) {
+                  final restaurantsAll = data.restaurants;
+                  final restaurants = restaurantsAll.restaurants;
+
+                  return Expanded(
+                    child: ListView.separated(
+                      itemCount: restaurants.length,
+                      padding: const EdgeInsets.symmetric(vertical: 20),
+                      separatorBuilder: (context, index) => const SizedBox(height: 20),
+                      itemBuilder: (context, index) {
+                        final restaurant = restaurants[index];
+                        _addImage(restaurant, index);
+
+                        return RestaurantWidget(restaurant: restaurant);
+                      },
+                    ),
+                  );
+                },
+              );
+            },
+          ),
         ],
       ),
     );
   }
-}
 
-class RestaurantWidget extends StatelessWidget {
-  const RestaurantWidget({
-    Key? key,
-  }) : super(key: key);
+  static final images = [
+    Assets.imagesFoto1,
+    Assets.imagesFoto2,
+    Assets.imagesFoto3,
+  ];
 
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-
-class SearchField extends StatelessWidget {
-  const SearchField({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-      decoration: InputDecoration(
-        constraints: const BoxConstraints(maxHeight: 42),
-        hintText: 'Поиск',
-        hintStyle: AppTextStyles.regular.copyWith(fontSize: 13, color: AppColors.grey_1),
-        contentPadding: const EdgeInsets.symmetric(vertical: 12),
-        prefixIcon: SvgPicture.asset(
-          Assets.svgSearch,
-          color: AppColors.grey_1,
-          fit: BoxFit.scaleDown,
-        ),
-        border: const OutlineInputBorder(borderSide: BorderSide(color: AppColors.grey_3, width: 1)),
-      ),
-    );
+  void _addImage(RestaurantModel model, int index) {
+    if (model.images.isEmpty && index < 3) {
+      model.images.add(ImageModel(id: index, url: images[index], restaurantId: model.id));
+    }
   }
 }

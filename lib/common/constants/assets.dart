@@ -17,6 +17,18 @@ class Assets {
   /// assets/fonts/Manrope-SemiBold.ttf
   static const String fontsManropeSemiBold = "assets/fonts/Manrope-SemiBold.ttf";
 
+  /// Assets for imagesFoto1
+  /// assets/images/foto_1.png
+  static const String imagesFoto1 = "assets/images/foto_1.png";
+
+  /// Assets for imagesFoto2
+  /// assets/images/foto_2.png
+  static const String imagesFoto2 = "assets/images/foto_2.png";
+
+  /// Assets for imagesFoto3
+  /// assets/images/foto_3.png
+  static const String imagesFoto3 = "assets/images/foto_3.png";
+
   /// Assets for svgEat
   /// assets/svg/eat.svg
   static const String svgEat = "assets/svg/eat.svg";
@@ -28,6 +40,10 @@ class Assets {
   /// Assets for svgLikeOn
   /// assets/svg/like_on.svg
   static const String svgLikeOn = "assets/svg/like_on.svg";
+
+  /// Assets for svgLocation
+  /// assets/svg/location.svg
+  static const String svgLocation = "assets/svg/location.svg";
 
   /// Assets for svgMap
   /// assets/svg/map.svg
@@ -48,6 +64,10 @@ class Assets {
   /// Assets for svgTarget
   /// assets/svg/target.svg
   static const String svgTarget = "assets/svg/target.svg";
+
+  /// Assets for svgTime
+  /// assets/svg/time.svg
+  static const String svgTime = "assets/svg/time.svg";
 
   /// Assets for svgUserIcon
   /// assets/svg/user_icon.svg

@@ -11,7 +11,6 @@ abstract class AppHttpPath {
   //рестораны
   static const restaurantsAll = '/api/v1/restaurants/all';
   static const restaurantSpecific = '/api/v1/restaurants/details/';
-  static const restaurantNew = '/api/v1/restaurants/restaurants/new';
 
   // избранное
   static const favorite = '/api/v1/likes/all';

@@ -18,6 +18,7 @@ class AppApiRouter {
 
     Uri uri;
     http.Response? response;
+    Object? body;
 
     final Map<String, String> headers = {'Content-Type': 'application/json; charset=utf-8'};
 
@@ -27,14 +28,18 @@ class AppApiRouter {
       });
     }
 
+    if (request.body != null) {
+      body = json.encode(request.body);
+    }
+
     switch (request.method) {
       case AppHttpMethod.post:
-        uri = Uri.http(host, request.path, request.queryParams);
+        uri = Uri.http(host, request.path + request.queryPath, request.queryParams);
 
         response = await client.post(
           uri,
           headers: headers,
-          body: json.encode(request.body),
+          body: body,
         );
         break;
       case AppHttpMethod.get:
@@ -46,30 +51,30 @@ class AppApiRouter {
         );
         break;
       case AppHttpMethod.put:
-        uri = Uri.http(host, request.path, request.queryParams);
+        uri = Uri.http(host, request.path + request.queryPath, request.queryParams);
 
         response = await client.put(
           uri,
           headers: headers,
-          body: json.encode(request.body),
+          body: body,
         );
         break;
       case AppHttpMethod.patch:
-        uri = Uri.http(host, request.path, request.queryParams);
+        uri = Uri.http(host, request.path + request.queryPath, request.queryParams);
 
         response = await client.patch(
           uri,
           headers: headers,
-          body: json.encode(request.body),
+          body: body,
         );
         break;
       case AppHttpMethod.delete:
-        uri = Uri.http(host, request.path, request.queryParams);
+        uri = Uri.http(host, request.path + request.queryPath, request.queryParams);
 
         response = await client.delete(
           uri,
           headers: headers,
-          body: json.encode(request.body),
+          body: body,
         );
         break;
       default:
