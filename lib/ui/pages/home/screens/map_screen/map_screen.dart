@@ -112,6 +112,7 @@ class _MapScreenState extends State<MapScreen> {
         onPressed: () async {
           _mapCubit.getUserPosition();
         },
+        backgroundColor: AppColors.white_1,
         child: SvgPicture.asset(Assets.svgGeo),
       ),
     );

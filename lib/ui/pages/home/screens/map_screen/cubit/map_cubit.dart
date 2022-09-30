@@ -39,6 +39,7 @@ class MapCubit extends Cubit<MapState> {
         Marker(
           markerId: MarkerId(rest.coordsId.toString()),
           position: LatLng(rest.coords.latitude, rest.coords.longitude),
+          icon: targetIcon!,
           infoWindow: InfoWindow(
             title: rest.title,
           ),
