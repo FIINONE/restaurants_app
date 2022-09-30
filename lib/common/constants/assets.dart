@@ -29,9 +29,21 @@ class Assets {
   /// assets/images/foto_3.png
   static const String imagesFoto3 = "assets/images/foto_3.png";
 
+  /// Assets for imagesPosition
+  /// assets/images/position.png
+  static const String imagesPosition = "assets/images/position.png";
+
+  /// Assets for imagesTarget
+  /// assets/images/target.png
+  static const String imagesTarget = "assets/images/target.png";
+
   /// Assets for svgEat
   /// assets/svg/eat.svg
   static const String svgEat = "assets/svg/eat.svg";
+
+  /// Assets for svgGeo
+  /// assets/svg/geo.svg
+  static const String svgGeo = "assets/svg/geo.svg";
 
   /// Assets for svgLikeOff
   /// assets/svg/like_off.svg

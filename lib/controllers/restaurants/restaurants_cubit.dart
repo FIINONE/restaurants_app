@@ -11,36 +11,36 @@ class RestaurantsAllCubit extends Cubit<RestaurantsState> {
 
   RestaurantsAllCubit(this._repo) : super(RestaurantsLoading());
 
-  Timer? bouncing;
+  Timer? _bouncing;
 
-  RestaurantsAllModel? data;
+  RestaurantsAllModel? _data;
 
   Future<void> getRestaurants({String? search}) async {
     emit(RestaurantsLoading());
 
     if (search != null && search.isNotEmpty) {
-      bouncing?.cancel();
+      _bouncing?.cancel();
 
-      bouncing = Timer(const Duration(seconds: 2), () async {
+      _bouncing = Timer(const Duration(seconds: 2), () async {
         final result = await _repo.getRestaurants(search: search);
 
         result.fold(
           (failure) => emit(RestaurantsError(message: failure.message)),
           (restaurants) {
-            data = restaurants;
+            _data = restaurants;
             emit(RestaurantsData(restaurants: restaurants));
           },
         );
       });
     } else {
-      bouncing?.cancel();
+      _bouncing?.cancel();
 
       final result = await _repo.getRestaurants();
 
       result.fold(
         (failure) => emit(RestaurantsError(message: failure.message)),
         (restaurants) {
-          data = restaurants;
+          _data = restaurants;
           emit(RestaurantsData(restaurants: restaurants));
         },
       );
@@ -48,16 +48,16 @@ class RestaurantsAllCubit extends Cubit<RestaurantsState> {
   }
 
   void updateState(int restaurantsID) {
-    if (data == null) return;
+    if (_data == null) return;
 
-    final index = data!.restaurants.indexWhere((element) => element.id == restaurantsID);
+    final index = _data!.restaurants.indexWhere((element) => element.id == restaurantsID);
 
     if (!index.isNegative) {
-      final rest = data!.restaurants[index];
+      final rest = _data!.restaurants[index];
       final newRest = rest.copyWith(isFavourite: !rest.isFavourite);
-      data!.restaurants[index] = newRest;
+      _data!.restaurants[index] = newRest;
 
-      emit(RestaurantsData(restaurants: data!));
+      emit(RestaurantsData(restaurants: _data!));
     }
   }
 }

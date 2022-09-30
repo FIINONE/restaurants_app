@@ -5,7 +5,7 @@ import 'package:test_restaurants_app/common/constants/assets.dart';
 import 'package:test_restaurants_app/common/themes/app_colors.dart';
 import 'package:test_restaurants_app/ui/pages/home/router/home_router.dart';
 import 'package:test_restaurants_app/ui/pages/home/screens/favorite_screen.dart';
-import 'package:test_restaurants_app/ui/pages/home/screens/map_screen.dart';
+import 'package:test_restaurants_app/ui/pages/home/screens/map_screen/map_screen.dart';
 import 'package:test_restaurants_app/ui/pages/home/screens/profile_screen.dart';
 import 'package:test_restaurants_app/ui/pages/home/screens/restaurants_list_screen.dart';
 
